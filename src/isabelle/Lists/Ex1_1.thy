@@ -11,7 +11,7 @@ thm rev.simps
 
 thm append.simps
 
-theorem helper : "snoc (ls @ xs ) x = ls @  snoc xs x"
+theorem helper : "snoc (ls @ xs ) x = ls @  snoc xs x" 
 proof (induct ls)
   case Nil 
   show ?case by simp
@@ -21,7 +21,16 @@ proof (induct ls)
   thus  "snoc ((a # ls) @ xs) x = (a # ls) @ snoc xs x"  by simp
 qed
 
-  
+lemma helper2 : "snoc xs x = xs @ [x]" 
+proof (induct xs)
+  case Nil 
+  show ?case by simp
+ next 
+  fix a xs 
+  assume "snoc xs x = xs @ [x]"
+  thus " snoc (a # xs) x = (a # xs) @ [x] " by simp
+qed
+
 
 theorem rev_cons: "rev (x # xs) = snoc (rev xs) x"
 proof (induct xs)
