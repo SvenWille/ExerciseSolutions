@@ -46,14 +46,7 @@ proof (induct xs)
   thus ?case by auto
 qed
 
-(*
+
 lemma "exs (\<lambda>x . P x \<and> Q x) xs = (exs P xs \<and> exs Q xs)"
-proof (induct xs)
-  case Nil 
-  show ?case by simp
- next 
-  fix a xs 
-  case (Cons a xs)
-  assume "exs (\<lambda>x. P x \<and> Q x) xs = (exs P xs \<and> exs Q xs)"
-  show " exs (\<lambda>x. P x \<and> Q x) (a # xs) = (exs P (a # xs) \<and> exs Q (a # xs))" 
-*)
+quickcheck
+
