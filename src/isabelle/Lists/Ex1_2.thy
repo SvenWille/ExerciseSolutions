@@ -28,5 +28,6 @@ proof (induct zs)
   thus " rev (replace x y (a # zs)) = replace x y (rev (a # zs)) " by (simp add : helper)
 qed
 
+
   
 
